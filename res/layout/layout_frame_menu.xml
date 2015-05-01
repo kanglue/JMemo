@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+  <LinearLayout 
+      android:id="@+id/linear_first"
+      style="@style/MemuTheme"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content">
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="item1" />
+  </LinearLayout>
+  <LinearLayout 
+      android:id="@+id/linear_second"
+      style="@style/MemuTheme"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content">
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="item2" />
+  </LinearLayout>
+  <LinearLayout 
+      android:id="@+id/linear_third"
+      style="@style/MemuTheme"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content">
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="item3" />
+  </LinearLayout>
+  <LinearLayout 
+      android:id="@+id/linear_fourth"
+      style="@style/MemuTheme"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content">
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="item4" />
+  </LinearLayout>
+
+</LinearLayout>
