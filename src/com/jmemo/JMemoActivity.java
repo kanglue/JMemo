@@ -30,6 +30,7 @@ import com.jmemo.db.DatabaseHelper;
 import com.jmemo.db.Word;
 import com.jmemo.fragment.GridWordFragment;
 import com.jmemo.fragment.MenuFragment;
+import com.jmemo.fragment.NewPhraseFragment;
 import com.jmemo.fragment.OnMenuItemClickListener;
 import com.jmemo.mini.FloatWindowService;
 import com.jmemo.util.CommonLog;
@@ -112,15 +113,18 @@ public class JMemoActivity extends SlidingFragmentActivity implements
 			actionBar.addTab(tab, i);
 		}
 
-		for (int i = 0; i < tabTitles.length; i++)
-		{
+//		for (int i = 0; i < tabTitles.length; i++)
+//		{
 			Fragment fragment = new GridWordFragment();
-			Bundle args = new Bundle();
-			args.putString("arg", tabTitles[i]);
-			fragment.setArguments(args);
+//			Bundle args = new Bundle();
+//			args.putString("arg", tabTitles[i]);
+//			fragment.setArguments(args);
 
 			fragmentList.add(fragment);
-		}
+			
+			Fragment fragment2 = new NewPhraseFragment();
+			fragmentList.add(fragment2);
+//		}
 
 		viewPager.setAdapter(new TabPagerAdapter(getSupportFragmentManager(),
 				fragmentList));
@@ -170,8 +174,8 @@ public class JMemoActivity extends SlidingFragmentActivity implements
 			Intent intent = new Intent(JMemoActivity.this,
 					FloatWindowService.class);
 			startService(intent);
-			finish();
-
+			//finish();
+			
 			return true;
 
 		default:

@@ -7,6 +7,9 @@ public class Phrase {
 	private int category;
 	private String translation;
 	
+	public Phrase()
+	{}
+	
 	public Phrase(String p, int c, String t)
 	{
 		this.phrase = p;

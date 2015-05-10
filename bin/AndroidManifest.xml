@@ -8,6 +8,7 @@
         android:minSdkVersion="11"
         android:targetSdkVersion="21" />
     
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
 	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 	<uses-permission android:name="android.permission.INTERNET"/>
@@ -39,11 +40,8 @@
         	>
     	</activity>
     	
-    	<service android:name=".PlayerService">
-            <intent-filter >
-                <action android:name="com.ianglei.jmemo.player.PlayerService"/>
-            </intent-filter>
-        </service>
+        <service 
+            android:name="com.jmemo.player.PlayMusicService"/>
     </application>
 
 </manifest>

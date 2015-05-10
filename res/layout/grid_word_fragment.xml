@@ -19,6 +19,41 @@
             android:numColumns="4"
             android:verticalSpacing="1dp" />
     </LinearLayout>
+    
+		<RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <FrameLayout
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" >
+
+                <Button
+                    android:id="@+id/font"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:background="@drawable/player_prev_highlight" />
+
+                <Button
+                    android:id="@+id/play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/player_pause_highlight" />
+
+                <Button
+                    android:id="@+id/next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:background="@drawable/player_next_highlight" />
+            </FrameLayout>
+
+
+        </RelativeLayout>
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -48,7 +83,8 @@
                     android:id="@+id/text_pronounce"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="start" />
+                    android:gravity="start" />                
+
             </LinearLayout>
 
             <TextView

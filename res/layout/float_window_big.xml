@@ -44,6 +44,11 @@
                 android:scrollbars="vertical"
                 android:singleLine="false" />
         </LinearLayout>
+        
+     <RadioGroup android:id="@+id/radioGroup" android:contentDescription="category" android:layout_width="wrap_content" android:layout_height="wrap_content">
+     <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/radio_word" android:text="Word" android:checked="true"></RadioButton>
+     <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/radio_phrase" android:text="Phrase"></RadioButton>    
+  </RadioGroup>
 
 
         <LinearLayout

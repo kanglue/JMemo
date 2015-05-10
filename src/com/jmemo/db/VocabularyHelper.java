@@ -64,11 +64,11 @@ public class VocabularyHelper
         //db.close();
 	}
 	
-	public static LinkedList<Word> getWordListFirst()
+	public static ArrayList<Word> getWordListFirst()
 	{
-		LinkedList<Word> list = new LinkedList<Word>();
+		ArrayList<Word> list = new ArrayList<Word>();
 		
-		String selectQuery = "SELECT * FROM " + TABLE_NAME + " limit 200 offset 0";
+		String selectQuery = "SELECT * FROM " + TABLE_NAME + " limit 80 offset 0";
         Log.i(TAG, selectQuery);
         SQLiteDatabase db = DatabaseHelper.getInstance().getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -107,7 +107,33 @@ public class VocabularyHelper
             	word.setMasted(cursor.getInt(16));
             	word.setInitial(cursor.getString(17));
             	
-            	list.addLast(word);
+            	list.add(word);
+            	
+            } while (cursor.moveToNext());
+        }
+        
+        cursor.close();        
+		
+		return list;
+	}
+	
+	public static ArrayList<Phrase> getPhraseList()
+	{
+		ArrayList<Phrase> list = new ArrayList<Phrase>();
+		
+		String selectQuery = "SELECT * FROM " + PHRASE_NAME;
+        Log.i(TAG, selectQuery);
+        SQLiteDatabase db = DatabaseHelper.getInstance().getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        
+        if (cursor.moveToFirst()) {
+            do {
+            	Phrase phrase = new Phrase();
+            	phrase.setPhrase(cursor.getString(0));
+            	phrase.setCategory(cursor.getInt(1));
+            	phrase.setTranslation(cursor.getString(2));
+            	            	
+            	list.add(phrase);
             	
             } while (cursor.moveToNext());
         }
@@ -167,7 +193,6 @@ public class VocabularyHelper
         } finally {  
             try {  
                 if (null != db) {  
-                    db.endTransaction();  
                     db.close();  
                 }  
             } catch (Exception e) {  

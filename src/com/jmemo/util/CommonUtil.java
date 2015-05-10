@@ -32,7 +32,7 @@ public class CommonUtil {
 		} else {
 			path = Environment.getDataDirectory().getAbsolutePath() + "/data/com.jmemo/"; // filePath: /data/data/
 		}
-		Log.i(TAG, path);
+		//Log.i(TAG, path);
 		return path;
 	}
 	

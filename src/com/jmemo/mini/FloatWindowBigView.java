@@ -9,10 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 
 import com.jmemo.R;
-import com.jmemo.R.id;
-import com.jmemo.R.layout;
 import com.jmemo.db.Phrase;
 import com.jmemo.db.VocabularyHelper;
 
@@ -31,6 +32,8 @@ public class FloatWindowBigView extends LinearLayout {
 	private EditText enText;
 	
 	private EditText cnText;
+	
+	private int category;
 
 	public FloatWindowBigView(final Context context) {
 		super(context);
@@ -43,12 +46,14 @@ public class FloatWindowBigView extends LinearLayout {
 		ImageView close = (ImageView) findViewById(R.id.x);
 		enText = (EditText)findViewById(R.id.english);
 		cnText = (EditText)findViewById(R.id.chinese);
+		RadioGroup group = (RadioGroup)this.findViewById(R.id.radioGroup);
+		
 		save.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 
 				//new En2CnService(context).save(enText.getText().toString().trim(), cnText.getText().toString().trim());
-				VocabularyHelper.insertPhrase(new Phrase(enText.getText().toString().trim(), 0, cnText.getText().toString().trim()));
+				VocabularyHelper.insertPhrase(new Phrase(enText.getText().toString().trim(), category, cnText.getText().toString().trim()));
 			}
 		});
 		back.setOnClickListener(new OnClickListener() {
@@ -69,6 +74,25 @@ public class FloatWindowBigView extends LinearLayout {
                 context.stopService(intent);
             }
         });
+		//绑定一个匿名监听器
+		         group.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+		             
+		             @Override
+		             public void onCheckedChanged(RadioGroup arg0, int arg1) {
+		                 //获取变更后的选中项的ID
+		                 int radioButtonId = arg0.getCheckedRadioButtonId();
+		                 //根据ID获取RadioButton的实例
+		                 RadioButton rb = (RadioButton)findViewById(radioButtonId);
+		                 String s = rb.getText().toString();
+		                 if(s.equals("Word"))
+		                 {
+		                	 category = 0;
+		                 }else if(s.equals("Phrase"))
+		                 {
+		                	 category = 1;
+		                 }
+		             }
+		         });
 	}
 }
 

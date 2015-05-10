@@ -52,4 +52,4 @@
         android:layout_marginRight="10dp"
         android:src="@drawable/detail" />
 
-</RelativeLayout><!-- From: file:/D:/johnny/workspace3/JMemo/res/layout/list_item.xml -->
+</RelativeLayout><!-- From: file:/D:/Developer/workspace/JMemo/res/layout/list_item.xml -->
