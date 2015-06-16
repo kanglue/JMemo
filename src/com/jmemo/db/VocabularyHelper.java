@@ -112,6 +112,8 @@ public class VocabularyHelper
             } while (cursor.moveToNext());
         }
         
+        Log.i(TAG, "The size of list: " + list.size());
+        
         cursor.close();        
 		
 		return list;

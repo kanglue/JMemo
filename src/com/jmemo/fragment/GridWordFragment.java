@@ -23,8 +23,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jmemo.R;
@@ -47,8 +47,8 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 	private TextView textSentence3;
 	private TextView textSentence4;
 	private TextView textSentence5;
-	private Button fontButton, nextButton;   //上一曲，下一曲，按钮
-	private Button playButton;  //播放，暂停按钮
+	private ImageView fontButton, nextButton;   //上一曲，下一曲，按钮
+	private ImageView playButton;  //播放，暂停按钮
 	private boolean isPlay;  //是否在播放
 	private Intent intent;
 	private List<Word> wordlist = null;
@@ -72,7 +72,7 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 
 		listererTelephony(); //来电话监听
 		
-		final Handler myHandler = new Handler()
+		final Handler myHandler = new Handler() //刷新字幕
 		{
 			@Override
 			public void handleMessage(Message msg) {
@@ -161,11 +161,11 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 		textSentence3 = (TextView)contextView.findViewById(R.id.text_sentence3);
 		textSentence4 = (TextView)contextView.findViewById(R.id.text_sentence4);
 		textSentence5 = (TextView)contextView.findViewById(R.id.text_sentence5);
-		fontButton = (Button) contextView.findViewById(R.id.font);
+		fontButton = (ImageView) contextView.findViewById(R.id.font);
 		fontButton.setOnClickListener(this);
-		nextButton = (Button) contextView.findViewById(R.id.next);
+		nextButton = (ImageView) contextView.findViewById(R.id.next);
 		nextButton.setOnClickListener(this);
-		playButton = (Button) contextView.findViewById(R.id.play);
+		playButton = (ImageView) contextView.findViewById(R.id.play);
 		playButton.setOnClickListener(this);
 		
 		wordlist = getData();
@@ -255,11 +255,11 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 		//http://www.tuicool.com/articles/Zv2Mjy
 
 		public View getView(int position, View convertView, ViewGroup parent) {
+			//Log.i(TAG, "getView " + position);
 			final TextView view;
 			if (convertView == null) {
 				view = new TextView(context);
-				view.setLayoutParams(new GridView.LayoutParams(CommonUtil.getScreenWidth(context) / 4, 50));
-				//view.setBackgroundColor(Color.YELLOW);
+				view.setLayoutParams(new GridView.LayoutParams(CommonUtil.getScreenWidth(context) / 4, 70));
 				view.setText(wordlist.get(position).getWord());
 			} else {
 				view = (TextView) convertView;
@@ -287,7 +287,10 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 			return position;
 		}
         
-        
+		class Holder  
+	    {
+	        public TextView textView;	  
+	    }
 	}
 
 
@@ -313,9 +316,9 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 	
 	private void play() {
 		if (isPlay) {
-			playButton.setBackgroundResource(R.drawable.player_play_highlight);
+			playButton.setImageDrawable(getResources().getDrawable(R.drawable.player_play_highlight));
 		} else {
-			playButton.setBackgroundResource(R.drawable.player_pause_highlight);
+			playButton.setImageDrawable(getResources().getDrawable(R.drawable.player_pause_highlight));
 		}
 		PlayMusicService.play();
 	}
@@ -330,4 +333,4 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 			PlayMusicService.stop();
 		}
 	}
-}
+};

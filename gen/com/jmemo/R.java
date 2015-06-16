@@ -1224,9 +1224,9 @@ containing a value of this type.
         public static final int disableHome=0x7f09000b;
         public static final int edit_query=0x7f09002e;
         public static final int english=0x7f09003f;
-        public static final int font=0x7f09004a;
+        public static final int font=0x7f090049;
         public static final int fullscreen=0x7f090013;
-        public static final int gridword=0x7f090049;
+        public static final int gridword=0x7f09004c;
         public static final int homeAsUp=0x7f09000c;
         public static final int image=0x7f090056;
         public static final int left=0x7f090011;
@@ -1240,11 +1240,11 @@ containing a value of this type.
         public static final int margin=0x7f090014;
         public static final int menu=0x7f090048;
         public static final int menu_settings=0x7f090065;
-        public static final int next=0x7f09004c;
+        public static final int next=0x7f09004b;
         public static final int normal=0x7f090009;
         public static final int phraseStr=0x7f090061;
         public static final int phrase_list=0x7f09005f;
-        public static final int play=0x7f09004b;
+        public static final int play=0x7f09004a;
         public static final int radioGroup=0x7f090040;
         public static final int radio_phrase=0x7f090042;
         public static final int radio_word=0x7f090041;
@@ -2740,7 +2740,7 @@ containing a value of this type.
          */
         public static final int[] SherlockSpinner = {
             0x010100af, 0x01010175, 0x01010176, 0x0101017b,
-            0x01010262, 0x010102ac, 0x010102ad, 0x01010534
+            0x01010262, 0x010102ac, 0x010102ad, 0x0101043d
         };
         /**
           <p>

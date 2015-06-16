@@ -126,7 +126,8 @@ public class PlayMusicService extends Service implements
 		{
 			e.printStackTrace();
 		}
-		playNextMusic();
+		//playNextMusic();
+		playRepeat();
 	}
 
 	@Override
@@ -193,6 +194,13 @@ public class PlayMusicService extends Service implements
 		}
 	}
 
+	public static void playRepeat() { //播放下一曲音乐
+		if (isPlay) {
+			player.stop();
+		}
+		reset();
+		startPlay(sentences[indexOf]);
+	}
 
 	public static void playNextMusic() { //播放下一曲音乐
 		if (isPlay) {
