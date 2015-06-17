@@ -68,7 +68,7 @@ public class VocabularyHelper
 	{
 		ArrayList<Word> list = new ArrayList<Word>();
 		
-		String selectQuery = "SELECT * FROM " + TABLE_NAME + " limit 80 offset 0";
+		String selectQuery = "SELECT * FROM " + TABLE_NAME + " limit 100 offset 0";
         Log.i(TAG, selectQuery);
         SQLiteDatabase db = DatabaseHelper.getInstance().getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);

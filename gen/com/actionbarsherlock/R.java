@@ -305,7 +305,7 @@ public final class R {
 		public static final int abs__title = 0x7f090022;
 		public static final int abs__titleDivider = 0x7f090023;
 		public static final int abs__up = 0x7f090001;
-		public static final int action_settings = 0x7f090064;
+		public static final int action_settings = 0x7f090065;
 		public static final int disableHome = 0x7f09000b;
 		public static final int edit_query = 0x7f09002e;
 		public static final int homeAsUp = 0x7f09000c;

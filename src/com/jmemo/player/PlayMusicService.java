@@ -81,8 +81,8 @@ public class PlayMusicService extends Service implements
 	}
 	private static void startPlay(String url) { //开始播放音乐
 		
-		Log.i(TAG, "index: " + index);
-		Log.i(TAG, "indexOf: " + indexOf);
+		//Log.i(TAG, "index: " + index);
+		//Log.i(TAG, "indexOf: " + indexOf);
 		
 		try {
 			player.reset();   //恢复原始状态

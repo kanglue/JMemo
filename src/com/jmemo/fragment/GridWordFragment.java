@@ -31,8 +31,8 @@ import com.jmemo.R;
 import com.jmemo.db.Sample;
 import com.jmemo.db.VocabularyHelper;
 import com.jmemo.db.Word;
+import com.jmemo.fragment.NewPhraseAdapter.ViewHolder;
 import com.jmemo.player.PlayMusicService;
-import com.jmemo.util.CommonUtil;
 
 public class GridWordFragment extends Fragment implements OnClickListener{
 	
@@ -256,23 +256,26 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 
 		public View getView(int position, View convertView, ViewGroup parent) {
 			//Log.i(TAG, "getView " + position);
+			ViewHolder holder = null;
 			final TextView view;
 			if (convertView == null) {
-				view = new TextView(context);
-				view.setLayoutParams(new GridView.LayoutParams(CommonUtil.getScreenWidth(context) / 4, 70));
-				view.setText(wordlist.get(position).getWord());
+				holder = new ViewHolder();
+				convertView = LayoutInflater.from(context).inflate(R.layout.grid_item, null);
+				holder.textView = (TextView)convertView.findViewById(R.id.grid_word);  
+				convertView.setTag(holder); 
 			} else {
-				view = (TextView) convertView;
+				holder=(ViewHolder)convertView.getTag();
 			}
+			holder.textView.setText(wordlist.get(position).getWord()); 
 			
 			if (clickTemp == position) {
-				view.setBackgroundResource(R.drawable.item_shape);
+				convertView.setBackgroundResource(R.drawable.item_shape);
 				} else {
-				view.setBackgroundColor(Color.TRANSPARENT);
+					convertView.setBackgroundColor(Color.TRANSPARENT);
 				}
 			
 
-			return view;
+			return convertView;
 		}
 
 		public int getCount() {
@@ -287,7 +290,7 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 			return position;
 		}
         
-		class Holder  
+		class ViewHolder  
 	    {
 	        public TextView textView;	  
 	    }
