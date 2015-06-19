@@ -33,6 +33,7 @@ import com.jmemo.fragment.MenuFragment;
 import com.jmemo.fragment.NewPhraseFragment;
 import com.jmemo.fragment.OnMenuItemClickListener;
 import com.jmemo.mini.FloatWindowService;
+import com.jmemo.player.PlayMusicService;
 import com.jmemo.util.CommonLog;
 import com.jmemo.util.ToastUtil;
 
@@ -57,6 +58,9 @@ public class JMemoActivity extends SlidingFragmentActivity implements
 
 	private Toast toast;
 	private boolean isBackExit;
+	
+	public static GridWordFragment gridWordFragment;
+	public static PlayMusicService playMusicService;
 
 	SlidingMenu sm;
 		
@@ -170,7 +174,7 @@ public class JMemoActivity extends SlidingFragmentActivity implements
 				sm.showMenu(true);
 			}
 			return true;
-		case R.id.menu_settings:
+		case R.id.action_float:
 			Intent intent = new Intent(JMemoActivity.this,
 					FloatWindowService.class);
 			startService(intent);

@@ -27,6 +27,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.jmemo.JMemoActivity;
 import com.jmemo.R;
 import com.jmemo.db.Sample;
 import com.jmemo.db.VocabularyHelper;
@@ -69,6 +70,7 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 		init(contextView);
 		
 		PlayMusicService.gridFragment = this;
+		JMemoActivity.gridWordFragment = this;
 
 		listererTelephony(); //来电话监听
 		
@@ -161,7 +163,7 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 		textSentence3 = (TextView)contextView.findViewById(R.id.text_sentence3);
 		textSentence4 = (TextView)contextView.findViewById(R.id.text_sentence4);
 		textSentence5 = (TextView)contextView.findViewById(R.id.text_sentence5);
-		fontButton = (ImageView) contextView.findViewById(R.id.font);
+		fontButton = (ImageView) contextView.findViewById(R.id.prev);
 		fontButton.setOnClickListener(this);
 		nextButton = (ImageView) contextView.findViewById(R.id.next);
 		nextButton.setOnClickListener(this);
@@ -308,7 +310,7 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 			if (index >= wordlist.size()) {
 				index = 0;
 			}
-		} else if (v.getId() == R.id.font) {//上一曲
+		} else if (v.getId() == R.id.prev) {//上一曲
 			index -= 1;
 			PlayMusicService.playFontMusic();
 			if (index < 0) {
@@ -317,13 +319,30 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 		}
 	}
 	
-	private void play() {
+	public void play() {
 		if (isPlay) {
 			playButton.setImageDrawable(getResources().getDrawable(R.drawable.player_play_highlight));
 		} else {
 			playButton.setImageDrawable(getResources().getDrawable(R.drawable.player_pause_highlight));
 		}
 		PlayMusicService.play();
+	}
+	
+	public void next()
+	{
+		PlayMusicService.playNextMusic();
+		index += 1;
+		if (index >= wordlist.size()) {
+			index = 0;
+		}
+	}
+	public void prev()
+	{
+		index -= 1;
+		PlayMusicService.playFontMusic();
+		if (index < 0) {
+			index = wordlist.size() - 1;
+		}
 	}
 	
 	@Override
