@@ -3,6 +3,7 @@ package com.jmemo.db;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import android.R.integer;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
@@ -62,6 +63,82 @@ public class VocabularyHelper
 			return true;
 		}
         //db.close();
+	}
+	
+	public static int getWordCount()
+	{
+		int count = 0;
+		String selectQuery = "SELECT COUNT(*) FROM " + TABLE_NAME;
+        Log.i(TAG, selectQuery);
+        SQLiteDatabase db = DatabaseHelper.getInstance().getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        
+        if (cursor.moveToFirst()) 
+        {
+        	do{
+        	count = cursor.getInt(0);
+        	} while (cursor.moveToNext());
+    
+		    Log.i(TAG, "The count of words: " + count);		    
+		    cursor.close();
+        }
+        
+        return count;
+	}
+	
+	public static ArrayList<Word> getWordListMore(int count, int offset)
+	{
+		ArrayList<Word> list = new ArrayList<Word>();
+
+		String selectQuery = "SELECT * FROM " + TABLE_NAME + " limit " + count + " offset " + offset;
+        Log.i(TAG, selectQuery);
+        SQLiteDatabase db = DatabaseHelper.getInstance().getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        
+        if (cursor.moveToFirst()) {
+            do {
+            	Word word = new Word();
+            	word.setWord(cursor.getString(0));
+            	word.setPronounce(cursor.getString(1));
+            	word.setVoicepath(cursor.getString(2));
+            	word.setTranslation(cursor.getString(3));
+            	word.setTense(cursor.getString(4));
+            	
+            	Sample sample1 = new Sample();
+            	sample1.setSentence(cursor.getString(5));
+            	sample1.setMp3Path(cursor.getString(6));
+            	word.addSample(sample1);
+            	Sample sample2 = new Sample();
+            	sample2.setSentence(cursor.getString(7));
+            	sample2.setMp3Path(cursor.getString(8));
+            	word.addSample(sample2);
+            	Sample sample3 = new Sample();
+            	sample3.setSentence(cursor.getString(9));
+            	sample3.setMp3Path(cursor.getString(10));
+            	word.addSample(sample3);
+            	Sample sample4 = new Sample();
+            	sample4.setSentence(cursor.getString(11));
+            	sample4.setMp3Path(cursor.getString(12));
+            	word.addSample(sample4);
+            	Sample sample5 = new Sample();
+            	sample5.setSentence(cursor.getString(13));
+            	sample5.setMp3Path(cursor.getString(14));
+            	word.addSample(sample5);
+            	
+            	word.setLearned(cursor.getInt(15));
+            	word.setMasted(cursor.getInt(16));
+            	word.setInitial(cursor.getString(17));
+            	
+            	list.add(word);
+            	
+            } while (cursor.moveToNext());
+        }
+        
+        Log.i(TAG, "The size of list: " + list.size());
+        
+        cursor.close();        
+		
+		return list;
 	}
 	
 	public static ArrayList<Word> getWordListFirst()

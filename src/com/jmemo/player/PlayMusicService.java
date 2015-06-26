@@ -31,7 +31,8 @@ public class PlayMusicService extends Service implements
 	private static int flag = 0; 
 	public static boolean isPause;   //是否暂停标志
 	private static PlayMusicService playMusicService;  //当前类对象，用于播放界面调用
-	public static List<Word> wordList;  //存放歌曲的集合
+	//public static List<Word> wordList;  //存放歌曲的集合
+	public static Word word;
 	public static int index;   //音乐播放id
 	private static String playUrl;   //音乐的播放url
     private boolean isRandom;   //是否随机播放
@@ -59,7 +60,7 @@ public class PlayMusicService extends Service implements
 	
 	private static void beginToPlay(int index)
 	{
-		Word word = wordList.get(index);
+		//Word word = wordList.get(index);
 		int isamples = word.getSamples().size();
 		sentences = new String[isamples + 1];
 		sentences[0] = CommonUtil.getRootFilePath() + word.getVoicepath();
@@ -75,7 +76,8 @@ public class PlayMusicService extends Service implements
 	private void init(Intent intent) { //初始化数据，从intent获取播放界面传过来的数据
 		
 		index = intent.getIntExtra("index", -1);
-		wordList = intent.getParcelableArrayListExtra("mp3");
+		word = (Word)intent.getExtras().get("word");
+		//wordList = intent.getParcelableArrayListExtra("mp3");
 		isRandom=intent.getBooleanExtra("isRandom", false);   //获取Playmusicactivity传过来的isRandom，用于是否随机播放
 		indexOf = 0;
 	}
@@ -117,7 +119,7 @@ public class PlayMusicService extends Service implements
 	@Override
 	public void onCompletion(MediaPlayer mp) { //一首播放完毕，继续下手
 		if (isRandom) { //是否为随机播放
-			index = new Random().nextInt(wordList.size() - 1);
+			//index = new Random().nextInt(wordList.size() - 1);
 		}
 		try
 		{
@@ -237,10 +239,10 @@ public class PlayMusicService extends Service implements
 	private static void showNotifi() {  //通知栏显示
 		if (playUrl != null) {
 			NotiFicationUtil.showNotification(playMusicService,
-					wordList.get(index).getWord());
+					word.getWord());
 		} else {
 			NotiFicationUtil.showNotification(playMusicService,
-					wordList.get(index).getWord());
+					word.getWord());
 		}
 	}
 
@@ -260,7 +262,7 @@ public class PlayMusicService extends Service implements
 				index = 0;
 				this.stopSelf();
 				flag = 0;
-				wordList = null;
+				word = null;
 				index = 0;
 			}
 		}

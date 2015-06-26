@@ -20,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
@@ -32,13 +33,12 @@ import com.jmemo.R;
 import com.jmemo.db.Sample;
 import com.jmemo.db.VocabularyHelper;
 import com.jmemo.db.Word;
-import com.jmemo.fragment.NewPhraseAdapter.ViewHolder;
 import com.jmemo.player.PlayMusicService;
 
 public class GridWordFragment extends Fragment implements OnClickListener{
 	
 	public static final String TAG = "GridWordFragment";
-	private GridView gridView;
+	private JGridView gridView;
 	private TextView textWord;
 	private TextView textPronounce;
 	private TextView textTense;
@@ -53,9 +53,10 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 	private boolean isPlay;  //是否在播放
 	private Intent intent;
 	private List<Word> wordlist = null;
+	
 	private HashMap<String, String[]> sentenceMap;
 	private int index;  
-	private WordListAdapter wordListAdapter;
+	private JGridViewAdapter wordListAdapter;
 	
 	Handler mHandler;
 	
@@ -88,6 +89,10 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 					textTense.setText(word.getTense());
 					
 					List<Sample> samples = word.getSamples();
+					if(samples.size() > 0 && samples.size() < 5)
+					{
+						Log.i(TAG, "The count of samples is less than 5.");
+					}
 					if(samples.size() > 0)
 					{
 						Sample sample = samples.get(0);
@@ -152,7 +157,7 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 	
 	private void init(View contextView)
 	{
-		gridView = (GridView)contextView.findViewById(R.id.gridword);
+		gridView = (JGridView)contextView.findViewById(R.id.gridword);
 		gridView.setSelector(R.drawable.item_shape);
 		textWord = (TextView)contextView.findViewById(R.id.text_word);
 		textPronounce = (TextView)contextView.findViewById(R.id.text_pronounce);		
@@ -172,9 +177,11 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 		
 		wordlist = getData();
 		
-		wordListAdapter = new WordListAdapter(getActivity().getApplicationContext(), wordlist);
+		wordListAdapter = new JGridViewAdapter(getActivity().getApplicationContext(), wordlist);
 
 		gridView.setAdapter(wordListAdapter);
+		
+		gridView.setOnScrollListener(gridView);
 	}
 	
 	public void setIsplay(boolean isPlay) {  //改变当前播放状态数据标志
@@ -225,13 +232,14 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 		PlayMusicService.stop();//播放之前，先停止播放，不管有没有在播放，都先停止
 		intent = new Intent();
 		intent.putExtra("index", index);
-		intent.putParcelableArrayListExtra("mp3", (ArrayList<? extends Parcelable>) wordlist);
+		//intent.putParcelableArrayListExtra("mp3", (ArrayList<? extends Parcelable>) wordlist);
+		intent.putExtra("word", wordlist.get(index));
 		intent.setClass(getActivity(), PlayMusicService.class); //启动service，播放音乐
 		getActivity().startService(intent);
 	}
 	
 
-	
+
 	
 	
 	////下面是取数据
@@ -240,66 +248,7 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 		return VocabularyHelper.getWordListFirst();
 	}
 	
-	class WordListAdapter extends BaseAdapter {
-		Context context;
-		List<Word> wordlist;
-		int clickTemp = -1;
-
-		public WordListAdapter(Context context, List<Word> wordlist) {
-			this.context = context;
-			this.wordlist = wordlist;
-		}
-		
-		public void setSeclection(int position) {
-			clickTemp = position;
-			}
-		
-		//http://www.tuicool.com/articles/Zv2Mjy
-
-		public View getView(int position, View convertView, ViewGroup parent) {
-			//Log.i(TAG, "getView " + position);
-			ViewHolder holder = null;
-			final TextView view;
-			if (convertView == null) {
-				holder = new ViewHolder();
-				convertView = LayoutInflater.from(context).inflate(R.layout.grid_item, null);
-				holder.textView = (TextView)convertView.findViewById(R.id.grid_word);  
-				convertView.setTag(holder); 
-			} else {
-				holder=(ViewHolder)convertView.getTag();
-			}
-			holder.textView.setText(wordlist.get(position).getWord()); 
-			
-			if (clickTemp == position) {
-				convertView.setBackgroundResource(R.drawable.item_shape);
-				} else {
-					convertView.setBackgroundColor(Color.TRANSPARENT);
-				}
-			
-
-			return convertView;
-		}
-
-		public int getCount() {
-			return wordlist.size();
-		}
-
-		public Object getItem(int position) {
-			return wordlist.get(position);
-		}
-
-		public long getItemId(int position) {
-			return position;
-		}
-        
-		class ViewHolder  
-	    {
-	        public TextView textView;	  
-	    }
-	}
-
-
-
+	
 	@Override
 	public void onClick(View v) {
 		if (v.getId() == R.id.play) {     //播放按钮
@@ -355,4 +304,6 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 			PlayMusicService.stop();
 		}
 	}
+
+	
 };

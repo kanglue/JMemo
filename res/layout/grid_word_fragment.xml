@@ -40,7 +40,7 @@
         android:layout_weight="0.5"
         android:orientation="vertical" >
         
-        <GridView
+        <com.jmemo.fragment.JGridView
             android:id="@+id/gridword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -49,8 +49,8 @@
             android:horizontalSpacing="2dp"
             android:verticalSpacing="2dp" 		
             android:columnWidth="75dp"  
-    			android:stretchMode="columnWidth"  
-    		/>
+    			android:stretchMode="columnWidth">
+    		</com.jmemo.fragment.JGridView>
     </LinearLayout> 
 
 
