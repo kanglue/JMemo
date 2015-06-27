@@ -7,11 +7,9 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
@@ -20,12 +18,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.SlidingDrawer;
 import android.widget.TextView;
 
 import com.jmemo.JMemoActivity;
@@ -57,7 +53,7 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 	private HashMap<String, String[]> sentenceMap;
 	private int index;  
 	private JGridViewAdapter wordListAdapter;
-	
+
 	Handler mHandler;
 	
 	final String MEDIA_BROCASE_ACTION = "com.jmemo.JMemoActivity";
@@ -151,6 +147,7 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 
 			}
 		});
+		
 		
 		return contextView;		
 	}
