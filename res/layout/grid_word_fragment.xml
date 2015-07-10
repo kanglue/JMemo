@@ -49,6 +49,7 @@
             android:horizontalSpacing="2dp"
             android:verticalSpacing="2dp" 		
             android:columnWidth="75dp"  
+            android:background="#411445"
     			android:stretchMode="columnWidth">
     		</com.jmemo.fragment.JGridView>
     </LinearLayout> 

@@ -8,6 +8,9 @@
                     android:id="@+id/grid_word"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:shadowRadius="3.0"
 	/>
 
 </LinearLayout>

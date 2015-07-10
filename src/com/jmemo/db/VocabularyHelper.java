@@ -280,4 +280,48 @@ public class VocabularyHelper
         }  
         return true;  
 	}
+	
+	public static int queryLearnedTime(String word)
+	{
+		int result = 0;
+		String selectQuery = "SELECT LEARNED FROM " + TABLE_NAME + " where word = '" + word + "'";
+        Log.i(TAG, selectQuery);
+        SQLiteDatabase db = DatabaseHelper.getInstance().getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        
+        if (cursor.moveToFirst()) {
+            do {
+            	result = cursor.getInt(0);
+
+            } while (cursor.moveToNext());
+        }
+        
+        cursor.close();        
+		
+		return result;
+	}
+	
+	public static boolean updateLearnedTime(String word, int time)
+	{
+		SQLiteDatabase db = null;  
+        try {  
+            db = DatabaseHelper.getInstance().getWritableDatabase();
+            String sql = "update " + TABLE_NAME + " set learned=" + time + " where word='" + word + "'";
+            Log.i(TAG, sql);
+            
+            db.execSQL(sql);
+        } catch (Exception e) {  
+            e.printStackTrace();  
+            return false;  
+        } finally {  
+            try {  
+                if (null != db) {  
+                    db.close();  
+                }  
+            } catch (Exception e) {  
+                e.printStackTrace();  
+            }  
+        }  
+        return true;  
+	}
 }

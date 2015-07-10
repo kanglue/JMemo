@@ -14,6 +14,7 @@ import android.support.v4.app.Fragment;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -21,7 +22,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
-import android.widget.SlidingDrawer;
 import android.widget.TextView;
 
 import com.jmemo.JMemoActivity;
@@ -29,6 +29,7 @@ import com.jmemo.R;
 import com.jmemo.db.Sample;
 import com.jmemo.db.VocabularyHelper;
 import com.jmemo.db.Word;
+import com.jmemo.fragment.JGridViewAdapter.ViewHolder;
 import com.jmemo.player.PlayMusicService;
 
 public class GridWordFragment extends Fragment implements OnClickListener{
@@ -119,6 +120,9 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 		};
 
 		gridView.setOnItemClickListener(new OnItemClickListener() {
+			//arg1是当前item的view，通过它可以获得该项中的各个组件。 
+			   //arg2是当前item的ID。这个id根据你在适配器中的写法可以自己定义。 
+			   //arg3是当前的item在listView中的相对位置！
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
@@ -126,6 +130,10 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 				Log.i(TAG, word.getWord());
 				wordListAdapter.setSeclection(position);
 				wordListAdapter.notifyDataSetChanged();
+				
+				ViewHolder viewHolder = (ViewHolder)view.getTag();
+				viewHolder.textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
+				viewHolder.textView.setBackgroundColor(0xffffff);
 				
 				Message msg = new Message();
 				msg.what = 0x01;
@@ -146,6 +154,8 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 				startPlay(position);
 
 			}
+			
+			
 		});
 		
 		
@@ -155,7 +165,7 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 	private void init(View contextView)
 	{
 		gridView = (JGridView)contextView.findViewById(R.id.gridword);
-		gridView.setSelector(R.drawable.item_shape);
+		//gridView.setSelector(R.drawable.item_shape);
 		textWord = (TextView)contextView.findViewById(R.id.text_word);
 		textPronounce = (TextView)contextView.findViewById(R.id.text_pronounce);		
 		textTense = (TextView)contextView.findViewById(R.id.text_tense);
@@ -179,6 +189,7 @@ public class GridWordFragment extends Fragment implements OnClickListener{
 		gridView.setAdapter(wordListAdapter);
 		
 		gridView.setOnScrollListener(gridView);
+
 	}
 	
 	public void setIsplay(boolean isPlay) {  //改变当前播放状态数据标志
