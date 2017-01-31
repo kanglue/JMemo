@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/big_window_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dip" >
+
+        <ImageView 
+            android:id="@+id/close_btn"
+            android:src="@drawable/x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            />
+
+
+
+            <EditText
+                android:id="@+id/phrase"
+                android:layout_width="fill_parent"
+                android:layout_height="50dip"
+                android:inputType="textMultiLine"
+                android:scrollbars="vertical"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/round_edit"
+                android:layout_below="@id/close_btn"/>
+
+        
+     <RadioGroup
+         android:id="@+id/radioGroup"
+         android:contentDescription="category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@id/phrase">
+             <RadioButton
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/radio_word"
+                 android:text="Word"
+                 android:checked="true">
+             </RadioButton>
+             <RadioButton
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/radio_phrase"
+                 android:text="Phrase">
+             </RadioButton>
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/symbol"
+        android:layout_width="fill_parent"
+        android:layout_height="100dip"
+        android:gravity="top|left"
+        android:inputType="textMultiLine"
+        android:scrollbars="vertical"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/round_edit"
+        android:layout_below="@id/radioGroup"/>
+
+            <EditText
+                android:id="@+id/translation"
+                android:layout_width="fill_parent"
+                android:layout_height="100dip"
+                android:gravity="top|left"
+                android:inputType="textMultiLine"
+                android:scrollbars="vertical"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/round_edit"
+                android:layout_below="@id/symbol"/>
+
+
+    <EditText
+        android:id="@+id/sample"
+        android:layout_width="fill_parent"
+        android:layout_height="100dip"
+        android:gravity="top|left"
+        android:inputType="textMultiLine"
+        android:scrollbars="vertical"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/round_edit"
+        android:layout_below="@id/translation"/>
+
+    <LinearLayout
+        android:id="@+id/dialog_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/chinese"
+        android:layout_below="@+id/sample"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="5dp" >
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2.5dp"
+            android:layout_weight="1"
+            android:padding="0dip"
+            android:text="Save" />
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2.5dp"
+            android:layout_weight="1"
+            android:padding="0dip"
+            android:text="Back" />
+    </LinearLayout>
+
+</RelativeLayout>
