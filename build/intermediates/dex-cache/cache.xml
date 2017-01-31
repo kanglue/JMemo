@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8bc45ce1f63d1a391fd38b32a201be5a42f9c95d">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.0.0_2eef6595430366df7878b16e719141ff90003588/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.0/jars/libs/internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="665d21a8a069c96b4d9e8b434f5096d865b4e261">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_d6da6cb45a23fe9d75affa95392ec12a5544eb45/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.0/jars/libs/internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ee5faf4dee5b6a4364bf51587871047dde7c703a">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_8869d3981c2a408b4e5a174cfc379e738ae06860/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.4/695b63d702f505b9b916e02272e3b6381bade7f/gson-2.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0695b63d702f505b9b916e02272e3b6381bade7f">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.4_f597ba0bcecf74cfe696f850cbdd70e3f0961f63/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="53a420cd4f49274db6bd43475f8006ba67ef6bbd">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.0.0_0077e98f489791d76e48555bbb2f4b3284a0d0c0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8a372c4191f80489770a231f7be4820b204b886a">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-25.0.0_826a6572bc63e39a1cfc0b31f803db37f748b144/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="07daa0b6e1d455c82a38422ffe287c18823d339a">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.0.0_23c4f1260a5354587f382a1749735dc94077b311/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.android.support/transition/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0c6d948e6cb9ea6f535d175fb61ba2930719c0e9">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.0.0_0914ec74e947853b7b1a01b6bceeafbfb1cf9ca8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.0.0_821b67a972ad5d210383bc9bfec14e470ca37e1e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.8.1/1eb6690b0c629d7000c77a72df5e822fb974f521/jsoup-1.8.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1eb6690b0c629d7000c77a72df5e822fb974f521">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/jsoup-1.8.1_514fbb4ef0f53f08261455d32f05de26816750cd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.0.0_fbae47a0ed8483eecbb64d710c4ad2de775f4d4b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="175e6976304219f8072185e7b6bb820e28239547">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_581be9f103f9869c5c54ca6a4ffa44f0187b34c3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="45c3807d9a4426d9c914d704ce5679ca3a2a0720">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_a7443c7c3cb402863b81aa7143c44064ed9e98b0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="76fb65a4b41ea42dab8a1310ed772a2420c96b52">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.0.0_6eab0bee5d2d116cadc3982f12ee90ef7fb996cd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="26674000177e45447a0326a6ad84612761199a13">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.0.0_918ea95453bfd12a2bc6d3fb974325ba766168b3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.0/jars/libs/internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_a2dabf0640c3453ef84ff9c981187b9ada082cf6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.android.support/design/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="26384be22ddc74cfe197ebda9edbc7d1fd8bd537">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.0.0_f534e0b4fc14b0432bc2c3f471ffbec43befb9a7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/developer/tools/adt-bundle-mac-x86_64-20140702/sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.0/support-annotations-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.0.0_0ff21ca841bb130a5d7f59bb0610c9cbf8697307/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.jcodecraeer/xrecyclerview/1.2.7/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0724e4d93c85866c8953b74776fa320efa122205">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.jcodecraeer-xrecyclerview-1.2.7_6ebcd12434e1734d849f6153e08a6d15e8c3554b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d29714cc76b38157e3cbd034c66e1ec808eb4c19">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.0.0_afbccd0f5d7c4c27b36770edee3c3aa083979e3a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.1.0/2de7cd8b95b7021b1d597f049bcb422055119f2c/retrofit-2.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2de7cd8b95b7021b1d597f049bcb422055119f2c">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/retrofit-2.1.0_cea011053f06b6d2e636cd73a20812bed0cc60d8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.0/jars/libs/internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_96d5b7ecb598104cf978dc464a0c7d66003d9871/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.3.0/2b802460eea20f8f2ad9c08c74e0f14718e88aa9/okhttp-3.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2b802460eea20f8f2ad9c08c74e0f14718e88aa9">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-3.3.0_c6b686c3aa94b2ac6f31a6059e17d12e53ec3205/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.8.0/5ea7af56cc7c567ed9856d99efb30740e9b17ff/okio-1.8.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.8.0_2e68461f31b9c427b89c385bc7bdc08b8d0144c6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.github.orhanobut/logger/1.12/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ecb9f39f775f414b18c7c61b4f71345f2ae8f738">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.orhanobut-logger-1.12_7966d2860c82822c7a0d39f2eebd14e76bbb5581/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/picasso-2.5.2_4f6a9b442af1a41f309b805d9274dce8a91b3e77/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="75b1f366ff0bbc78f8b1f7cf0dc82e7c53afef6a">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.0.0_1d36b79bb228803a4b7fd6198f4248ee698cc546/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/1.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/de.hdodenhof-circleimageview-1.3.0_8e88da3dc01da3614530365c6b5f1441d241be3f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.0/jars/libs/internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_e8e946ab22f457391194dfd62181d044ff845d97/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5e497d60f0cb6ce87c458ac5420a46d0fed49bd0">
+        <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.0.0_ade6b82b4c4b6499ccdc562f1f361e9b65f181af/classes.dex" />
+    </item>
+
+</items>
