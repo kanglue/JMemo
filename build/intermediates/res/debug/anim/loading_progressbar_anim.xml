@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rotate xmlns:android="http://schemas.android.com/apk/res/android"
-    android:drawable="@drawable/loading"
-    android:fromDegrees="0"
-    android:toDegrees="360"
-    android:pivotX="50%"
-    android:pivotY="50%"
-    android:duration="700"
-    /><!-- From: file:/D:/Developer/workspace/JMemo/res/anim/loading_progressbar_anim.xml -->
