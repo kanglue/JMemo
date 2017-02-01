@@ -7,6 +7,8 @@ import android.view.Gravity;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 
+import com.ianglei.jmemo.bean.Phrase;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -99,6 +101,27 @@ public class MyWindowManager {
 		int screenHeight = windowManager.getDefaultDisplay().getHeight();
 		if (bigWindow == null) {
 			bigWindow = new FloatWindowBigView(context);
+			if (bigWindowParams == null) {
+				bigWindowParams = new LayoutParams();
+				bigWindowParams.x = screenWidth / 2 - FloatWindowBigView.viewWidth / 2;
+				bigWindowParams.y = screenHeight / 2 - FloatWindowBigView.viewHeight / 2;
+				bigWindowParams.type = LayoutParams.TYPE_PHONE;
+				bigWindowParams.format = PixelFormat.RGBA_8888;
+				bigWindowParams.gravity = Gravity.LEFT | Gravity.TOP;
+				bigWindowParams.width = FloatWindowBigView.viewWidth;
+				bigWindowParams.height = FloatWindowBigView.viewHeight;
+				bigWindowParams.alpha = 0.7f;
+			}
+			windowManager.addView(bigWindow, bigWindowParams);
+		}
+	}
+
+	public static void openBigWindow(Context context, Phrase phrase) {
+		WindowManager windowManager = getWindowManager(context);
+		int screenWidth = windowManager.getDefaultDisplay().getWidth();
+		int screenHeight = windowManager.getDefaultDisplay().getHeight();
+		if (bigWindow == null) {
+			bigWindow = new FloatWindowBigView(context, phrase);
 			if (bigWindowParams == null) {
 				bigWindowParams = new LayoutParams();
 				bigWindowParams.x = screenWidth / 2 - FloatWindowBigView.viewWidth / 2;

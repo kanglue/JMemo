@@ -106,7 +106,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="175e6976304219f8072185e7b6bb820e28239547">
+        sha1="447d90b71958974821abeb8e67ab66f2e956fb69">
         <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_581be9f103f9869c5c54ca6a4ffa44f0187b34c3/classes.dex" />
     </item>
     <item
@@ -115,7 +115,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="45c3807d9a4426d9c914d704ce5679ca3a2a0720">
+        sha1="fb996d2e5f6b26e297efa82a665cf690b23fea3f">
         <dex dex="/Users/jianglei/Documents/github/JMemo-github/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_a7443c7c3cb402863b81aa7143c44064ed9e98b0/classes.dex" />
     </item>
     <item

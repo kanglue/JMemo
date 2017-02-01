@@ -51,10 +51,11 @@ public final class DBHelper extends SQLiteOpenHelper {
     public static final String PHRASE_TABLE = "Phrase";
     public static final String PHRASE = "phrase";
     public static final String CATEGORY = "category";
+    public static final String SYMBOL = "symbol";
     public static final String TRANSLATION = "translation";
     public static final String SAMPLE = "sample";
 
-    static int dbVersion=4;
+    static int dbVersion=7;
     private static final String DB_PATH = "db";
     private static final String DB_NAME = "jmemo.db";
     private static final String DB_PATH_NAME = StorageUtil.getSDCardPath() + "jmemo" + File.separator + DB_PATH + File.separator + DB_NAME;
@@ -98,6 +99,7 @@ public final class DBHelper extends SQLiteOpenHelper {
             + "("
             + PHRASE + " TEXT PRIMARY KEY, "
             + CATEGORY + " INTEGER, "
+            + SYMBOL + " TEXT, "
             + TRANSLATION + " TEXT, "
             + SAMPLE + " TEXT)";
 
@@ -137,6 +139,7 @@ public final class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + PHRASE_TABLE);
         try {
             db.execSQL(CREATE_TABLE_PHRASE);
+            L.d("onUpgrade: " + CREATE_TABLE_PHRASE);
             onCreate(db);
         } catch (SQLException e) {
             L.e("sqlite onUpgrade error");

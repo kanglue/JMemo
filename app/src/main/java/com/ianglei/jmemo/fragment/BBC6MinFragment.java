@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.Message;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -17,18 +15,12 @@ import com.google.gson.reflect.TypeToken;
 import com.ianglei.jmemo.JMemoApplication;
 import com.ianglei.jmemo.R;
 import com.ianglei.jmemo.activity.DetailActivity;
-import com.ianglei.jmemo.activity.WebViewActivity;
 import com.ianglei.jmemo.adapter.JRVBaseAdapter;
-import com.ianglei.jmemo.adapter.JFragmentStatePagerAdapter;
 import com.ianglei.jmemo.bean.Listening;
 import com.ianglei.jmemo.service.BBC6MinParser;
 import com.ianglei.jmemo.service.SaveNewsListTask;
-import com.ianglei.jmemo.utils.Apis;
-import com.ianglei.jmemo.utils.HttpUtil;
 import com.ianglei.jmemo.utils.L;
-import com.ianglei.jmemo.utils.LogUtil;
 import com.ianglei.jmemo.utils.Tools;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -169,9 +161,7 @@ public class BBC6MinFragment extends BaseXRecyclerViewFragment
                 Bitmap bm = BitmapFactory.decodeFile(bean.getCoverpath());
                 //将图片显示到ImageView中
                 imageView.setImageBitmap(bm);
-
-//                    HttpUtil.getInstance().loadImage(bean.url, imageView, true);
-
+//              HttpUtil.getInstance().loadImage(bean.url, imageView, true);
                 holder.setText(R.id.learned_time, bean.getLearnedtimes() + "");
 //                holder.setText(R.id.tv_tag, bean.type);
             }

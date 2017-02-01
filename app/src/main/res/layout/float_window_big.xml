@@ -3,83 +3,86 @@
     android:id="@+id/big_window_layout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="10dip" >
+    android:padding="10dip">
 
-        <ImageView 
-            android:id="@+id/close_btn"
-            android:src="@drawable/x"
+    <ImageView
+        android:id="@+id/close_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/x" />
+
+
+    <EditText
+        android:id="@+id/phrase"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:layout_below="@id/close_btn"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/round_edit"
+        android:inputType="textMultiLine"
+        android:text="text"
+        android:scrollbars="vertical" />
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phrase"
+        android:contentDescription="category">
+
+        <RadioButton
+            android:id="@+id/radio_word"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            />
+            android:checked="true"
+            android:text="Word"></RadioButton>
 
-
-
-            <EditText
-                android:id="@+id/phrase"
-                android:layout_width="fill_parent"
-                android:layout_height="50dip"
-                android:inputType="textMultiLine"
-                android:scrollbars="vertical"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/round_edit"
-                android:layout_below="@id/close_btn"/>
-
-        
-     <RadioGroup
-         android:id="@+id/radioGroup"
-         android:contentDescription="category"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_below="@id/phrase">
-             <RadioButton
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:id="@+id/radio_word"
-                 android:text="Word"
-                 android:checked="true">
-             </RadioButton>
-             <RadioButton
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:id="@+id/radio_phrase"
-                 android:text="Phrase">
-             </RadioButton>
+        <RadioButton
+            android:id="@+id/radio_phrase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phrase"></RadioButton>
     </RadioGroup>
+
 
     <EditText
         android:id="@+id/symbol"
         android:layout_width="fill_parent"
         android:layout_height="100dip"
+        android:background="@drawable/round_edit"
         android:gravity="top|left"
         android:inputType="textMultiLine"
+        android:text="text"
         android:scrollbars="vertical"
+        android:layout_below="@+id/radioGroup"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:id="@+id/translation"
+        android:layout_width="fill_parent"
+        android:layout_height="100dip"
+        android:layout_below="@id/symbol"
         android:layout_marginTop="5dp"
         android:background="@drawable/round_edit"
-        android:layout_below="@id/radioGroup"/>
-
-            <EditText
-                android:id="@+id/translation"
-                android:layout_width="fill_parent"
-                android:layout_height="100dip"
-                android:gravity="top|left"
-                android:inputType="textMultiLine"
-                android:scrollbars="vertical"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/round_edit"
-                android:layout_below="@id/symbol"/>
+        android:gravity="top|left"
+        android:inputType="textMultiLine"
+        android:text="text"
+        android:scrollbars="vertical" />
 
 
     <EditText
         android:id="@+id/sample"
         android:layout_width="fill_parent"
         android:layout_height="100dip"
-        android:gravity="top|left"
-        android:inputType="textMultiLine"
-        android:scrollbars="vertical"
+        android:layout_below="@id/translation"
         android:layout_marginTop="5dp"
         android:background="@drawable/round_edit"
-        android:layout_below="@id/translation"/>
+        android:gravity="top|left"
+        android:inputType="textMultiLine"
+        android:text="text"
+        android:scrollbars="vertical" />
 
     <LinearLayout
         android:id="@+id/dialog_btn"
@@ -89,7 +92,7 @@
         android:layout_below="@+id/sample"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingTop="5dp" >
+        android:paddingTop="5dp">
 
         <Button
             android:id="@+id/save"
@@ -109,5 +112,6 @@
             android:padding="0dip"
             android:text="Back" />
     </LinearLayout>
+
 
 </RelativeLayout>

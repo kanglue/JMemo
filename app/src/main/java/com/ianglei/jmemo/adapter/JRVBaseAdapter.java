@@ -181,6 +181,7 @@ public abstract class JRVBaseAdapter<T> extends RecyclerView.Adapter<JRVBaseAdap
     }
 
     public void addAll(List<T> beans) {
+        clear();
         mBeans.addAll(beans);
         notifyDataSetChanged();
     }

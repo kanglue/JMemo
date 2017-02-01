@@ -1,17 +1,14 @@
 package com.ianglei.jmemo.fragment;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.ImageView;
 
+import com.ianglei.jmemo.JMemoApplication;
 import com.ianglei.jmemo.R;
-import com.ianglei.jmemo.activity.DetailActivity;
 import com.ianglei.jmemo.adapter.JRVBaseAdapter;
-import com.ianglei.jmemo.bean.Listening;
 import com.ianglei.jmemo.bean.Phrase;
+import com.ianglei.jmemo.mini.MyWindowManager;
+import com.ianglei.jmemo.utils.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,12 +18,15 @@ import java.util.List;
  */
 
 public class PhraseFragment extends BaseXRecyclerViewFragment {
-
+    public static final String TAG = PhraseFragment.class.getSimpleName();
     private JRVBaseAdapter jrvBaseAdapter;
+    List<Phrase> list = new ArrayList<Phrase>();
 
     @Override
     public void loadData() {
-
+        list = (List<Phrase>) JMemoApplication.getPhraseHelper().getPhraseList();
+        L.i("Phrase list size: " + list.size());
+        onDataSuccessReceived(list);
     }
 
     @Override
@@ -68,7 +68,7 @@ public class PhraseFragment extends BaseXRecyclerViewFragment {
 
             @Override
             protected void onItemClick(int position) {
-
+                MyWindowManager.openBigWindow(getContext(), list.get(position - 1));
             }
         };
 
@@ -77,6 +77,6 @@ public class PhraseFragment extends BaseXRecyclerViewFragment {
 
     @Override
     protected RecyclerView.LayoutManager getLayoutManager() {
-        return null;
+        return new LinearLayoutManager(getMyContext());
     }
 }

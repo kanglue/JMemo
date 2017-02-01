@@ -5,6 +5,7 @@ import android.database.SQLException;
 
 //import com.antfortune.freeline.FreelineCore;
 import com.ianglei.jmemo.db.ListeningDataSource;
+import com.ianglei.jmemo.db.PhraseHelper;
 import com.ianglei.jmemo.utils.StorageUtil;
 import com.ianglei.jmemo.utils.ToastUtil;
 import com.orhanobut.logger.Logger;
@@ -17,6 +18,7 @@ public class JMemoApplication extends Application {
     public static JMemoApplication application;
 
     private static ListeningDataSource dataSource;
+    private static PhraseHelper phraseHelper;
 
     public static JMemoApplication getApplication() {
         return application;
@@ -24,6 +26,11 @@ public class JMemoApplication extends Application {
 
     public static ListeningDataSource getDataSource() {
         return dataSource;
+    }
+
+    public static PhraseHelper getPhraseHelper()
+    {
+        return phraseHelper;
     }
 
     @Override
@@ -38,10 +45,12 @@ public class JMemoApplication extends Application {
                 .methodOffset(2);                // default 0
 
         dataSource = new ListeningDataSource(this);
+        phraseHelper = new PhraseHelper(this);
 
         try
         {
             dataSource.open();
+            phraseHelper.open();
         }
         catch (SQLException e)
         {
