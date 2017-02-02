@@ -15,7 +15,6 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -24,13 +23,12 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ianglei.jmemo.JMemoApplication;
 import com.ianglei.jmemo.R;
 import com.ianglei.jmemo.bean.Listening;
 import com.ianglei.jmemo.service.PlayMediaService;
-import com.ianglei.jmemo.service.PlayMediaService.*;
+import com.ianglei.jmemo.service.PlayMediaService.PlayerBinder;
 import com.ianglei.jmemo.utils.JUtils;
 import com.ianglei.jmemo.utils.L;
 import com.ianglei.jmemo.utils.StringUtils;
@@ -81,6 +79,8 @@ public class DetailActivity extends BaseActivity implements View.OnClickListener
     private Listening item;
     private boolean isPlayed = false;
     private boolean isDragPlay = false;
+    int now = -1;
+    int to = -1;
 
 
     @Override
@@ -249,7 +249,7 @@ public class DetailActivity extends BaseActivity implements View.OnClickListener
             case KeyEvent.KEYCODE_MEDIA_PREVIOUS://耳机三个按键是的上键，注意并不是耳机上的三个按键的物理位置的上下。
             case KeyEvent.KEYCODE_VOLUME_UP:
                 //按键功能定义的处理。
-                backToPlay();
+                backToPlay(seekBar.getProgress());
                 break;
             case KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE://耳机单按键的按键或三按键耳机的中间按键。
             case KeyEvent.KEYCODE_HEADSETHOOK://耳机单按键的按键或三按键耳机的中间按键。与上面的按键可能是相同的，具体得看驱动定义。
@@ -270,21 +270,16 @@ public class DetailActivity extends BaseActivity implements View.OnClickListener
         return false;//为true,则其它后台按键处理再也无法处理到该按键，为false,则其它后台按键处理可以继续处理该按键事件。
     }
 
-    private void backToPlay()
+    private void backToPlay(int progress)
     {
-        int now = seekBar.getProgress();
+        now = progress;
         L.d("now: " + now);
-        int to = now - (10 * 1000);
+        to = now - (10 * 1000);
         if(to < 0)
             to = 0;
         L.d("to: " + to);
-
-        playMediaService.start();
-        playMediaService.pause();
 //        playMediaService.seekTo(item.getTitle(), item.getMp3path());
         playMediaService.seekTo(to);
-        onProgressChanged(seekBar, to, false);
-        playMediaService.play();
     }
 
     private void restoreToPlay()
@@ -336,11 +331,11 @@ public class DetailActivity extends BaseActivity implements View.OnClickListener
         }
         else if(v.getId() == R.id.replay)
         {
-            backToPlay();
+            backToPlay(seekBar.getProgress());
         }
         else if(v.getId() == R.id.restore)
         {
-            restoreToPlay();
+            now = -1;
         }
         //		else if (v.getId() == R.id.next) { //下一去
         //			PlayMusicService.playNextMusic();
@@ -370,11 +365,13 @@ public class DetailActivity extends BaseActivity implements View.OnClickListener
             {
                 playMediaService.pause();
                 playButton.setText("播放");
+                setIsplay(false);
             }
             else
             {
                 playMediaService.play();
                 playButton.setText("暂停");
+                setIsplay(true);
             }
         }
 
@@ -408,27 +405,33 @@ public class DetailActivity extends BaseActivity implements View.OnClickListener
 //            playMediaService.stop();
 //        }
     }
+
+    private int calcNear(int now, int progress)
+    {
+        return now > progress ? (now - progress) : (progress - now);
+    }
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress,
                                   boolean fromUser) {   //拖动seekbar时候，调用这里
         L.d("seekbar progress: " + progress);
         if (fromUser) {
 //            playMediaService.start();
-            if(isDragPlay)
-            {
-                playMediaService.play();
-            }
-            else
-            {
-                playMediaService.pause();
-            }
-            playMediaService.seekTo(progress);  //播放跳转到拖动位置
+//            playMediaService.seekTo(progress);  //播放跳转到拖动位置
+        }
+
+        if(calcNear(now, progress) < 500)
+        {
+            L.d("now to back play:" + progress);
+            backToPlay(now);
+        }
+        else
+        {
+            L.d("now: " + now + ", to: " + to);
         }
     }
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) { //开始拖动seekbar
-        isDragPlay = isPlay;
-        playMediaService.pause();
+//        playMediaService.pause();
         nowBarSize = seekBar.getProgress();
     }
     @Override
@@ -437,6 +440,7 @@ public class DetailActivity extends BaseActivity implements View.OnClickListener
         if (nowBarSize >= seekBarSize) {
             //PlayMusicService.setFlag();
         }
+        playMediaService.seekTo(seekBarSize);  //播放跳转到拖动位置
     }
 
     class TranscriptTask extends AsyncTask<Listening, Integer, String>

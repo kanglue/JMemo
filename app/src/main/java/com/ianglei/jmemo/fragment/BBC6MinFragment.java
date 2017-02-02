@@ -20,6 +20,7 @@ import com.ianglei.jmemo.bean.Listening;
 import com.ianglei.jmemo.service.BBC6MinParser;
 import com.ianglei.jmemo.service.SaveNewsListTask;
 import com.ianglei.jmemo.utils.L;
+import com.ianglei.jmemo.utils.NetworkUtil;
 import com.ianglei.jmemo.utils.Tools;
 
 import org.json.JSONException;
@@ -137,7 +138,9 @@ public class BBC6MinFragment extends BaseXRecyclerViewFragment
 //                    onDataErrorReceived();
 //                }
 //            });
-            new Thread(new BBC6MinParser(handler)).start();
+            if(NetworkUtil.Constants.NETWORK_WIFI == NetworkUtil.getNetWorkStatus(getActivity())) {
+                new Thread(new BBC6MinParser(handler)).start();
+            }
         }
     }
 
