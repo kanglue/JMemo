@@ -53,9 +53,9 @@ public class PhraseFragment extends BaseXRecyclerViewFragment {
     protected JRVBaseAdapter getAdapter() {
         jrvBaseAdapter = new JRVBaseAdapter<Phrase>(new ArrayList<Phrase>(), getMyContext()) {
 
+            @Override
             protected void onBindData(JRVBaseAdapter.CommomViewHolder holder, Phrase bean) {
                 holder.setText(R.id.phrase, bean.getPhrase());
-                holder.setText(R.id.category, bean.getCategory() == 0 ? "word" : "phrase");
                 holder.setText(R.id.symbol, bean.getSymbol());
                 holder.setText(R.id.translation, bean.getTranslation());
                 holder.setText(R.id.sample, bean.getSample());
@@ -70,6 +70,8 @@ public class PhraseFragment extends BaseXRecyclerViewFragment {
             protected void onItemClick(int position) {
                 MyWindowManager.openBigWindow(getContext(), list.get(position - 1));
             }
+
+
         };
 
         return jrvBaseAdapter;

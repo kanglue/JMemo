@@ -69,7 +69,7 @@ public class FloatWindowBigView extends LinearLayout {
 				phrase.setTranslation(cnText.getText().toString().trim());
 				phrase.setSample(saText.getText().toString().trim());
 				JMemoApplication.getPhraseHelper().insertPhrase(phrase);
-                ToastUtil.showShort(context, "Saved phrase: " + phrase.toString());
+                //ToastUtil.showShort(context, "Saved phrase: " + phrase.toString());
             }
 		});
 		back.setOnClickListener(new OnClickListener() {
@@ -150,7 +150,6 @@ public class FloatWindowBigView extends LinearLayout {
 				phrase.setTranslation(cnText.getText().toString().trim());
 				phrase.setSample(saText.getText().toString().trim());
 				JMemoApplication.getPhraseHelper().updatePhrase(phrase);
-				ToastUtil.showShort(context, "Saved phrase: " + phrase.toString());
 			}
 		});
 		back.setOnClickListener(new OnClickListener() {

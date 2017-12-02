@@ -143,8 +143,8 @@ public class FloatWindowSmallView extends LinearLayout
      */
     private void openBigWindow()
     {
-        MyWindowManager.createBigWindow(getContext());
         MyWindowManager.removeSmallWindow(getContext());
+        MyWindowManager.createBigWindow(getContext());
     }
     
     /**

@@ -34,6 +34,8 @@
             android:name=".activity.WebViewActivity"
             android:screenOrientation="portrait"
             />
+        <activity android:name=".activity.PopupWord"
+            android:theme="@style/MyDialogStyleBottom"/>
         <service
             android:name="com.ianglei.jmemo.service.PlayMediaService"/>
         <service android:name="com.ianglei.jmemo.mini.FloatWindowService"></service>

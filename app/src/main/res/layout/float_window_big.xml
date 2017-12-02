@@ -3,6 +3,7 @@
     android:id="@+id/big_window_layout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@color/accent"
     android:padding="10dip">
 
     <ImageView
@@ -12,15 +13,12 @@
         android:layout_alignParentRight="true"
         android:src="@drawable/x" />
 
-
     <EditText
         android:id="@+id/phrase"
         android:layout_width="fill_parent"
         android:layout_height="50dip"
         android:layout_below="@id/close_btn"
         android:layout_marginTop="5dp"
-        android:background="@drawable/round_edit"
-        android:inputType="textMultiLine"
         android:text="text"
         android:scrollbars="vertical" />
 
@@ -50,11 +48,10 @@
     <EditText
         android:id="@+id/symbol"
         android:layout_width="fill_parent"
-        android:layout_height="100dip"
-        android:background="@drawable/round_edit"
+        android:layout_height="wrap_content"
         android:gravity="top|left"
         android:inputType="textMultiLine"
-        android:text="text"
+        android:text="symbol"
         android:scrollbars="vertical"
         android:layout_below="@+id/radioGroup"
         android:layout_alignParentEnd="true" />
@@ -62,13 +59,11 @@
     <EditText
         android:id="@+id/translation"
         android:layout_width="fill_parent"
-        android:layout_height="100dip"
+        android:layout_height="wrap_content"
         android:layout_below="@id/symbol"
         android:layout_marginTop="5dp"
-        android:background="@drawable/round_edit"
         android:gravity="top|left"
-        android:inputType="textMultiLine"
-        android:text="text"
+        android:text="translation"
         android:scrollbars="vertical" />
 
 
@@ -78,17 +73,15 @@
         android:layout_height="100dip"
         android:layout_below="@id/translation"
         android:layout_marginTop="5dp"
-        android:background="@drawable/round_edit"
         android:gravity="top|left"
         android:inputType="textMultiLine"
-        android:text="text"
+        android:text="sample"
         android:scrollbars="vertical" />
 
     <LinearLayout
         android:id="@+id/dialog_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/chinese"
         android:layout_below="@+id/sample"
         android:gravity="center"
         android:orientation="horizontal"
@@ -113,5 +106,5 @@
             android:text="Back" />
     </LinearLayout>
 
-
+a
 </RelativeLayout>

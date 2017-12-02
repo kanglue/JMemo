@@ -1,6 +1,8 @@
 package com.ianglei.jmemo.db;
 
+import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
@@ -43,8 +45,21 @@ public class VocabularyHelper
 	public static final String PHRASE = "phrase";
 	public static final String CATEGORY = "category";
 	public static final String TRANSLATION = "translation";
+
+	private SQLiteDatabase database;
+	private DBHelper dbHelper;
+
+	public VocabularyHelper(Context context)
+	{
+		dbHelper = new DBHelper(context);
+	}
+
+	public void open() throws SQLException {
+		database = dbHelper.getWritableDatabase();
+	}
+
 	
-	public static boolean isWordExist(String word)
+	public boolean isWordExist(String word)
 	{
 		String selectQuery = "SELECT " + COLUMN_TRANSLATION + " FROM " + TABLE_NAME;
         selectQuery =  selectQuery + " where " + COLUMN_ENGLISH + "='" + word + "'";
@@ -70,16 +85,67 @@ public class VocabularyHelper
 		}
         //db.close();
 	}
+
+	public ArrayList<Word> getWordList(int offset)
+	{
+		ArrayList<Word> list = new ArrayList<Word>();
+
+		String selectQuery = "SELECT * FROM " + TABLE_NAME + " ORDER BY learned limit 80 offset " + offset;
+		Log.i(TAG, selectQuery);
+		Cursor cursor = database.rawQuery(selectQuery, null);
+
+		if (cursor.moveToFirst()) {
+			do {
+				Word word = new Word();
+				word.setWord(cursor.getString(0));
+				word.setPronounce(cursor.getString(1));
+				word.setVoicepath(cursor.getString(2));
+				word.setTranslation(cursor.getString(3));
+				word.setTense(cursor.getString(4));
+
+				Sample sample1 = new Sample();
+				sample1.setSentence(cursor.getString(5));
+				sample1.setMp3Path(cursor.getString(6));
+				word.addSample(sample1);
+				Sample sample2 = new Sample();
+				sample2.setSentence(cursor.getString(7));
+				sample2.setMp3Path(cursor.getString(8));
+				word.addSample(sample2);
+				Sample sample3 = new Sample();
+				sample3.setSentence(cursor.getString(9));
+				sample3.setMp3Path(cursor.getString(10));
+				word.addSample(sample3);
+				Sample sample4 = new Sample();
+				sample4.setSentence(cursor.getString(11));
+				sample4.setMp3Path(cursor.getString(12));
+				word.addSample(sample4);
+				Sample sample5 = new Sample();
+				sample5.setSentence(cursor.getString(13));
+				sample5.setMp3Path(cursor.getString(14));
+				word.addSample(sample5);
+
+				word.setLearned(cursor.getInt(15));
+				word.setMasted(cursor.getInt(16));
+				word.setInitial(cursor.getString(17));
+
+				list.add(word);
+
+			} while (cursor.moveToNext());
+		}
+
+		cursor.close();
+
+		return list;
+	}
 	
-	public static ArrayList<Word> getWordListFirst()
+	public ArrayList<Word> getWordListFirst()
 	{
 		ArrayList<Word> list = new ArrayList<Word>();
 		
 		String selectQuery = "SELECT * FROM " + TABLE_NAME + " ORDER BY learned limit 80 offset 0";
         Log.i(TAG, selectQuery);
-        SQLiteDatabase db = DBHelper.getInstance().getReadableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-        
+		Cursor cursor = database.rawQuery(selectQuery, null);
+
         if (cursor.moveToFirst()) {
             do {
             	Word word = new Word();
@@ -126,7 +192,7 @@ public class VocabularyHelper
 	
 
 	
-	public static boolean insertWordList(ArrayList<Word> wordList)
+	public boolean insertWordList(ArrayList<Word> wordList)
 	{
 		if(DBHelper.getInstance() == null || wordList == null || wordList.size() == 0)
 		{

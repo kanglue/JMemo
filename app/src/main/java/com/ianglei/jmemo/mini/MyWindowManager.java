@@ -110,7 +110,7 @@ public class MyWindowManager {
 				bigWindowParams.gravity = Gravity.LEFT | Gravity.TOP;
 				bigWindowParams.width = FloatWindowBigView.viewWidth;
 				bigWindowParams.height = FloatWindowBigView.viewHeight;
-				bigWindowParams.alpha = 0.7f;
+				bigWindowParams.alpha = 1f;
 			}
 			windowManager.addView(bigWindow, bigWindowParams);
 		}
@@ -131,7 +131,7 @@ public class MyWindowManager {
 				bigWindowParams.gravity = Gravity.LEFT | Gravity.TOP;
 				bigWindowParams.width = FloatWindowBigView.viewWidth;
 				bigWindowParams.height = FloatWindowBigView.viewHeight;
-				bigWindowParams.alpha = 0.7f;
+				bigWindowParams.alpha = 0.9f;
 			}
 			windowManager.addView(bigWindow, bigWindowParams);
 		}

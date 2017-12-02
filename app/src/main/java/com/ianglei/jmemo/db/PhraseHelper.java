@@ -67,8 +67,8 @@ public class PhraseHelper {
     public boolean insertPhrase(Phrase phrase)
     {
         try {
-            String sql = "insert into " + TABLE_NAME + " values('" + phrase.getPhrase() + "'," + phrase.getSymbol()
-                    + "'," + phrase.getCategory() + ",'" + phrase.getTranslation() + ",'" + phrase.getSample() + ")";
+            String sql = "insert into " + TABLE_NAME + " values('" + phrase.getPhrase() + "','" + phrase.getSymbol()
+                    + "'," + phrase.getCategory() + ",'" + phrase.getTranslation() + "','" + phrase.getSample() + "')";
             Log.i(TAG, sql);
 
             database.execSQL(sql);
@@ -135,5 +135,12 @@ public class PhraseHelper {
         cursor.close();
 
         return list;
+    }
+
+    public void delPhrase(String phrase)
+    {
+        String delSQL = "del from " + TABLE_NAME_Phrase + " where phrase ='" + phrase + "'";
+        Log.d(TAG, delSQL);
+        database.execSQL(delSQL);
     }
 }

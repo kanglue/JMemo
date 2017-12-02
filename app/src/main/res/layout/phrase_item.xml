@@ -11,41 +11,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="phrase"
-        android:textSize="18dp" />
+        android:textSize="16dp" />
 
-    <TextView
-        android:id="@+id/category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/phrase"
-        android:padding="3dp"
-        android:text="category" />
 
     <TextView
         android:id="@+id/symbol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/category"
-        android:padding="3dp"
+        android:layout_toRightOf="@id/phrase"
+        android:paddingLeft="5dp"
         android:text="symbol" />
 
     <TextView
         android:id="@+id/translation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/phrase"
-        android:layout_below="@id/phrase"
+        android:layout_toRightOf="@id/symbol"
         android:text="translation"
-        android:textSize="12sp" />
+        android:paddingLeft="10dp"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/sample"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/translation"
-        android:layout_below="@id/translation"
+        android:layout_alignLeft="@id/phrase"
+        android:layout_below="@id/phrase"
         android:text="Sample"
         android:textSize="12sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="X"
+        android:layout_alignParentRight="true"/>
 
 </RelativeLayout>
 

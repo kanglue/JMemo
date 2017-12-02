@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.ianglei.jmemo.fragment.BBC6MinFragment;
 import com.ianglei.jmemo.fragment.PhraseFragment;
+import com.ianglei.jmemo.fragment.WordFragment;
 import com.ianglei.jmemo.utils.FragmentManagerUtil;
 
 /**
@@ -30,16 +31,23 @@ public class JFragmentStatePagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        //首页BBC
+        //首页
         if(position == 0) {
-            Fragment fragment = FragmentManagerUtil.createFragment(BBC6MinFragment.class, false);
+            Fragment fragment = FragmentManagerUtil.createFragment(PhraseFragment.class, false);
             Bundle bundle = new Bundle();
             bundle.putString(TYPE_KEY, mTitles[position]);
             fragment.setArguments(bundle);
             return fragment;
         }
         else if(position == 1) {
-                Fragment fragment = FragmentManagerUtil.createFragment(PhraseFragment.class, false);
+            Fragment fragment = FragmentManagerUtil.createFragment(WordFragment.class, false);
+            Bundle bundle = new Bundle();
+            bundle.putString(TYPE_KEY, mTitles[position]);
+            fragment.setArguments(bundle);
+            return fragment;
+        }
+        else if(position == 2) {
+                Fragment fragment = FragmentManagerUtil.createFragment(BBC6MinFragment.class, false);
                 Bundle bundle = new Bundle();
                 bundle.putString(TYPE_KEY, mTitles[position]);
                 fragment.setArguments(bundle);

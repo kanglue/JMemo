@@ -166,8 +166,9 @@ public abstract class BaseXRecyclerViewFragment<T> extends BaseFragment {
      * 通知数据加载完毕
      */
     private void loadComplete() {
-        if (mCurrentAction == ACTION_REFRESH)
+        if (mCurrentAction == ACTION_REFRESH) {
             mXRecyclerView.refreshComplete();
+        }
         if (mCurrentAction == ACTION_LOAD_MORE)
             mXRecyclerView.loadMoreComplete();
     }

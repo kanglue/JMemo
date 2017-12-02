@@ -24,7 +24,7 @@ public class TabFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-        mTitles = new String[]{"BBC 6 Minutes", "Phrase", "休息视频", "福利", "iOS", "拓展资源", "前端", "瞎推荐"};
+        mTitles = new String[]{"Phrase", "Word", "BBC 6 Minutes"};
         mTabLayout = IFindViewById(R.id.tl_study);
         mViewPager = IFindViewById(R.id.viewpager);
         mViewPager.setOffscreenPageLimit(3);

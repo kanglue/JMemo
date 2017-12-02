@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -21,6 +22,7 @@ import com.ianglei.jmemo.service.BBC6MinParser;
 import com.ianglei.jmemo.service.SaveNewsListTask;
 import com.ianglei.jmemo.utils.L;
 import com.ianglei.jmemo.utils.NetworkUtil;
+import com.ianglei.jmemo.utils.ToastUtil;
 import com.ianglei.jmemo.utils.Tools;
 
 import org.json.JSONException;
@@ -114,30 +116,9 @@ public class BBC6MinFragment extends BaseXRecyclerViewFragment
             List<Listening> list = (List<Listening>)JMemoApplication.getDataSource().getItemListByCategory(6, 10 * mCurrentPageIndex);
             L.i("无网络");
             onDataSuccessReceived(list);
-            // ToastUtil.show("当前无网络连接", Toast.LENGTH_SHORT);
+            ToastUtil.show(getContext(),"当前无网络连接", Toast.LENGTH_SHORT);
         } else {
-//            HttpUtil.getInstance().loadString(reqUrl, new HttpUtil.HttpCallBack() {
-//                @Override
-//                public void onLoading() {
-//                    Log.d(TAG, "onLoading");
-//                }
-//
-//                @Override
-//                public void onSuccess(String result) {
-//                    Log.d(TAG, "onSucess");
-//                    //LogUtil.d("onSuccess");
-//                    if (mCurrentAction == ACTION_REFRESH) {
-//                        storeOfflineData(result);
-//                    }
-//                    onDataSuccessReceived(result);
-//
-//                }
-//
-//                @Override
-//                public void onError(Exception e) {
-//                    onDataErrorReceived();
-//                }
-//            });
+
             if(NetworkUtil.Constants.NETWORK_WIFI == NetworkUtil.getNetWorkStatus(getActivity())) {
                 new Thread(new BBC6MinParser(handler)).start();
             }
